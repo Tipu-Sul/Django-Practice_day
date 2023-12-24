@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>hello {{ user }} ! Welcome to profile</h1>
+
+<button ><a class=" btn btn-primary mx-1" href="{% url 'passChange'%}">Edit password</a></button>
+<button ><a class=" btn btn-primary mx-1" href="{% url 'passChange2'%}">Edit password without password</a></button>
+<button><a class=" btn btn-primary mx-1" href="{% url 'edit_user'%}">Edit User Data</a></button>
+</br>
+</br>
+{% if messages %}
+{% for m in messages %}
+
+<h5 class="bg-success">{{ m }}</h5>
+
+{% endfor %}
+{% endif %}
+</br>
+<hr>
+
+{% endblock  %}

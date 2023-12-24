@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Homepage</h1>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Musician Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Album Rating</th>
+        <th scope="col">Instrument Type</th>
+        <th scope="col">Album Name</th>
+        <th scope="col">Relese Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+      <tr>
+        <th scope="row">{{item.id}}</th>
+        {% if request.user.is_authenticated %}
+        <td><a href="{% url 'edit_musician' item.musician.id %}">{{item.musician.first_name}}</a></td>
+        {% else %}
+        <td>{{item.musician.first_name}}</td>
+        {% endif %}
+        <td>{{item.musician.email}}</td>
+        <td>{{item.rating}}</td>
+        <td>{{item.musician.instrument_type}}</td>
+        <td>{{item.album_name}}</td>
+        <td>{{item.album_relese_date}}</td>
+        {% if request.user.is_authenticated %}
+        <td>
+            <a class='btn btn-primary' href="{% url 'edit_album' item.id %}">Edit</a>
+            <a class='btn btn-danger' href="{% url 'delete_album' item.id %}">Delete</a>
+          
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    
+    </tbody>
+  </table>
+
+
+
+{% endblock %}

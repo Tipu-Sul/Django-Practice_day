@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is homepage</h1>
+    <h1>Name : {{name}}</h1>
+    <h1>Age : {{age}}</h1>
+    <h2>list= {{lst}}</h2>
+    <!-- conditional statement -->
+    {% if can_drive %}
+    <h2>You can det a driving licence</h2>
+    {% elif is_teenager %}
+    <h2>you are teenager</h2>
+    {% elif is_child %}
+    <h2>you are child</h2>
+    {% else %}
+    <h2>you are not adult</h2>
+    {% endif %}
+
+    <!-- looping -->
+    {%for i in course%}
+    <h3>{{i.id}}, {{i.name}}, {{i.fee}}</h3>
+    {% endfor %}
+
+    <!-- templates -->
+   <h3> {{ num | add:"2" }},</h3>
+    <h3>{{ lst | addslashes }},</h3>
+    <h3>{{ lst | capfirst }},</h3>
+    <h3> {{ name | center:"15" }},</h3>
+    <h3> {{ lst | cut:" " }}</h3>
+    <h3>{{ birthday | date:"D d M Y" }}</h3>
+    <h3>{{ value | default:"nothing" }}</h3>
+    <h3>{{ course | dictsort:"fee" }}</h3>
+    <h3>{{ age | divisibleby:"3" }}</h3>
+    <h3>{{ lst | escape }}</h3>
+    <h3>{{ 123456789 | filesizeformat }}</h3>
+    <h3>{{ course | first }}</h3>
+    <h3>{{ lst | join:" // " }}</h3>
+    <h3>{{ lst | last }}</h3>
+    <h3>{{ lst | length }}</h3>
+    <h3>{{ course | linenumbers }}</h3>
+    <h3>{{ name | lower }}</h3>
+    <h3>{{ name | make_list }}</h3>
+    <h3>{{ course | random }}</h3>
+    <h3>{{ lst | slice:":2" }}</h3>
+    <h3>{{ about | slugify }}</h3>
+    <h3>{{ time | time:"H:i" }}</h3>
+    <h3>{{ about | title }}</h3>
+    <h3>{{ lst | unordered_list }}</h3>
+    <h3>{{ about | upper }}</h3>
+    <h3>{{ about | wordcount }}</h3>
+    <h3>{{ lst | join:" - " }}</h3>
+    <h3>{{ birthday|date:"SHORT_DATE_FORMAT" }}</h3>
+    <h3>{{ about | capfirst }}.</h3>
+    <h3>{{ about | cut:" " }}.</h3>
+    <h3>{{ course | linenumbers }}</h3>
+    <h3> {{ blog | timesince }} </h3>
+    <h3>{{ about | truncatechars:10 }}.</h3>
+    <h3>{{ lst | truncatewords:3 }}.</h3>
+    <h3>{{ about | striptags }}.</h3>
+    <h3>You have {{ num_tomato }} tomato {{ num_tomato | pluralize:"es" }}.</h3>
+    <h3></h3>
+    
+   
+   
+    
+</body>
+</html>
